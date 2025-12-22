@@ -1,0 +1,21 @@
+.header {
+  width: 100%;
+  border-bottom: 1px;
+  gap: 450px;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  padding: 24px 64px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.header_nav {
+  width: 138px;
+  height: 24px;
+  gap: 32px;
+    display: flex;
+    align-items: center;
+}
+.logo {
+  width: 136px;
+  height: 16px;
+}

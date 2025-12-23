@@ -1,0 +1,42 @@
+/* src/index.css */
+:root {
+  --main: rgba(16, 24, 40, 1);
+  --dark-grey: rgba(71, 84, 103, 1);
+  --grey: rgba(108, 113, 123, 1);
+  --orange: rgba(228, 72, 72, 1);
+  --red: rgba(216, 67, 67, 1);
+  --yellow: rgba(255, 197, 49, 1);
+  --light-grey: rgba(218, 221, 225, 1);
+  --very-light-grey: rgba(242, 244, 247, 1);
+  --inputs: rgba(247, 247, 247, 1);
+  --ligth-white: rgba(255, 255, 255, 1);
+  --max-width: 1440px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+  font-size: 16px;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  width: 100%;
+}
+
+.container {
+  max-width: var(--max-width);
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 clamp(16px, 5vw, 64px);
+}

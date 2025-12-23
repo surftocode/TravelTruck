@@ -1,9 +1,9 @@
 .header {
+  max-width: 1440px;
   width: 100%;
   border-bottom: 1px;
   gap: 450px;
   display: flex;
-  flex-wrap: nowrap;
   align-items: center;
   padding: 24px 64px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -12,8 +12,16 @@
   width: 138px;
   height: 24px;
   gap: 32px;
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
+}
+
+.link {
+  text-decoration-line: none;
+  font-weight: 500;
+
+  line-height: 24px;
+  color: var(--main);
 }
 .logo {
   width: 136px;

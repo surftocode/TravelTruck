@@ -1,0 +1,23 @@
+.home_body{
+    width: 571px;
+    height: 176px;
+    gap:40px;
+
+}
+
+.home_text{
+    width: 571px;
+    height: 80px;
+    position:absolute;
+    top:50%;
+    gap:16px;
+    color:var(--inputs);
+
+
+}
+
+.camper{
+    width: 100%;
+    height: auto;
+    position:relative;
+}

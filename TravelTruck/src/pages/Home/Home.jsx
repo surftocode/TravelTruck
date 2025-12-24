@@ -1,6 +1,5 @@
 import Button from "../../components/Button";
 import React from "react";
-import Header from "../../components/Header";
 import camper from "../../assets/images/camper.jpg";
 import css from "../../styles/Home.module.css";
 

@@ -11,3 +11,14 @@
   width: 360px;
   height: 88px;
 }
+
+.filters{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+}
+
+.filterItem{
+    border-style: var(--light-grey) solid 1px;
+   list-style-type: none;
+}

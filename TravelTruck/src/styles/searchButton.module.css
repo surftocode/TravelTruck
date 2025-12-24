@@ -1,15 +1,14 @@
-.home_button {
-  width: 173px;
-  height: 56px;
+.searchBtn {
   background-color: var(--orange);
   color: var(--ligth-white);
-  border: none;
   border-radius: 200px;
+  width: 166px;
+  height: 56px;
+  border: none;
   padding: 16px;
-  gap: 10px;
-  margin-top: 40px;
 }
-.home_button:hover {
+
+.searchBtn:hover {
   background-color: var(--dark_orange);
   cursor: pointer;
 }

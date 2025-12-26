@@ -13,7 +13,6 @@ export default function Catalog() {
           <p>Location</p>
           <input
             type="text"
-            value="location"
             placeholder="city"
             onChange={(e) => {
               setInputValue(e.target.value);
@@ -21,9 +20,11 @@ export default function Catalog() {
           ></input>
           <p>Filters</p>
 
+          <div className={css.equipments}>
+            <h3>Vehicle equipments </h3>
+          </div>
+          <p className={css.devider}></p>
           <VeicleEqp />
-
-          <div className={css.equipments}>Vehicle equipments </div>
           <div>Vehicle type</div>
           <SearchButton />
         </div>

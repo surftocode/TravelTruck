@@ -22,10 +22,16 @@ export default function VeicleEqp() {
         const iconName = icon;
         console.log(iconName);
         return (
-          <li key={iconName} className={css.listItem}>
-            <img src={iconSrc} alt="iconName" style={{width:"32px", height:"32px"}} />
-            {iconName}
-          </li>
+          <button className={css.listItem}>
+            <li key={iconName}  >
+              <img
+                src={iconSrc}
+                alt="iconName"
+                style={{ width: "32px", height: "32px" }}
+              />
+              {iconName}
+            </li>
+          </button>
         );
       })}
     </ul>

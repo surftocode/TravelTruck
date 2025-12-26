@@ -28,6 +28,10 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  line-height: 24px;
+  color: var(--main);
+  letter-spacing: -0.5%;
+  margin:32px;
 }
 
 #root {

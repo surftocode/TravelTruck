@@ -1,12 +1,13 @@
 .header {
-  max-width: 1440px;
+  height: 72px;
   width: 100%;
   border-bottom: 1px;
   gap: 450px;
   display: flex;
   align-items: center;
-  padding: 24px 64px;
+  padding-left: 24px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: var(--light-grey);
 }
 .header_nav {
   width: 138px;

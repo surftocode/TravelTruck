@@ -8,7 +8,7 @@ import logo from "../assets/icons/Logo.svg";
 export default function Header() {
   return (
     <>
-      <div className="header">
+      <div className={css.header}>
         <img src={logo} alt="TravelTruck" className={css.logo} />
         <nav className={css.header_nav}>
           <Link to="/" className={css.link}>

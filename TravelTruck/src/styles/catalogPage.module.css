@@ -2,14 +2,30 @@
   display: flex;
   flex-direction: column;
   align-items: start;
-  margin-top: 20px;
+  margin:32px;
   gap: 16px;
+  
+}
+input{
+  background-color: var(--very-light-grey);
+  border-color:transparent;
+  width: 360px;
+  height: 56px;
+  border-radius: 12px;
+  padding:20px;
+
+}
+input:active, input:focus{
+  outline:none;
+  background-color: var(--light-grey);
   
 }
 
 .location {
   width: 360px;
   height: 88px;
+ 
+
 }
 
 .filters{
@@ -25,8 +41,6 @@
 }
 .equipments{
   gap:24px;
-  
-
 
 }
 

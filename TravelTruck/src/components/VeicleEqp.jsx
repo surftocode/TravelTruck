@@ -1,22 +1,30 @@
-
-
+import React from "react";
+import AC from "../assets/icons/AC.svg?react";
+import Bathroom from "../assets/icons/Bathroom.svg?react";
+import Automatic from "../assets/icons/Automatic.svg?react";
+import Kitchen from "../assets/icons/Kitchen.svg?react";
+import TV from "../assets/icons/TV.svg?react";
+import css from "../styles/equipments.module.css";
 export default function VeicleEqp() {
-  const icons = import.meta.glob("../../assets/icons/*.svg", {
-    eager: true,
-    import: "default",
-  });
-  const getIcon = (iconName) => {
-    return icons[`../../assets/icons/${iconName}.svg`];
+  const icons = {
+    AC: AC,
+    Automatic: Automatic,
+    Kitchen: Kitchen,
+    TV: TV,
+    Bathroom: Bathroom,
   };
 
+  console.log("Icons object:", icons);
+
   return (
-    <ul>
-      {Object.entries(icons).map(([path, IconComponent]) => {
-        const iconName = path.split("/").pop().replace(".svg", "");
+    <ul className={css.ul}>
+      {Object.entries(icons).map(([icon, iconSrc]) => {
+        const iconName = icon;
+        console.log(iconName);
         return (
-          <li key={iconName} style={{ width: "32px", height: "32px" }}>
-            <IconComponent />
-            <span>{iconName}</span>
+          <li key={iconName} className={css.listItem}>
+            <img src={iconSrc} alt="iconName" style={{width:"32px", height:"32px"}} />
+            {iconName}
           </li>
         );
       })}

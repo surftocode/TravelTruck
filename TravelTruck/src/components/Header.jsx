@@ -13,10 +13,10 @@ export default function Header() {
       <div className={css.header}>
         <img src={logo} alt="TravelTruck" className={css.logo} />
         <nav className={css.header_nav}>
-          <Link to="/" className={css.link} style={{color: location.pathname==="/"?"red":"black"}}>
+          <Link to="/" className={css.link} style={{color: location.pathname==="/"?"var(--orange)":"var(--main"}}>
             Home
           </Link>
-          <Link to="/catalog" className={css.link} style={{color: location.pathname==="/catalog"?"red":"black"}}>
+          <Link to="/catalog" className={css.link} style={{color: location.pathname==="/catalog"?"var(--orange)":"var(--main"}}>
             Catalog
           </Link>
         </nav>

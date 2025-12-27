@@ -6,9 +6,9 @@ import css from "../styles/vehicleType.module.css";
 
 export default function VehicleType() {
   const icons = {
-    van: Van,
-    integrated: Integrated,
-    alcove: Alcove,
+    Van: Van,
+    Integrated: Integrated,
+    Alcove: Alcove,
   };
   return (
     <ul>

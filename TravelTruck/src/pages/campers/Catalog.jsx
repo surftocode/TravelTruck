@@ -11,7 +11,7 @@ export default function Catalog() {
     <>
       <div className={css.bodyDiv}>
         <div className={css.location}>
-          <p>Location</p>
+          <p className={css.locationText}>Location</p>
           <input
             type="text"
             placeholder="city"
@@ -19,14 +19,13 @@ export default function Catalog() {
               setInputValue(e.target.value);
             }}
           ></input>
-          <p>Filters</p>
-
+          <p className={css.filtersText}>Filters</p>
           <div className={css.equipments}>
             <h3>Vehicle equipments </h3>
           </div>
           <p className={css.devider}></p>
           <VeicleEqp />
-          <div>Vehicle type</div>
+          <h3>Vehicle type</h3>
           <p className={css.devider}></p>
           <VehicleType />
           <SearchButton />

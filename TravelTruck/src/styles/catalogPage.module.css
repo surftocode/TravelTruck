@@ -25,15 +25,23 @@ input:active, input:focus{
   width: 360px;
   height: 88px;
  
+ 
 
 }
+.locationText{
+  margin:32px 0px;
 
+}
+.filtersText{
+  margin:36px 0px;
+}
+/* 
 .filters{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 8px;
     margin:30px;
-}
+} */
 
 .filterItem{
     border-style: var(--light-grey) solid 1px;

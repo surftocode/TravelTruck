@@ -14,8 +14,6 @@ export default function VeicleEqp() {
     Bathroom: Bathroom,
   };
 
-  console.log("Icons object:", icons);
-
   return (
     <ul className={css.ul}>
       {Object.entries(icons).map(([icon, iconSrc]) => {
@@ -23,7 +21,7 @@ export default function VeicleEqp() {
         console.log(iconName);
         return (
           <button className={css.listItem}>
-            <li key={iconName}  >
+            <li key={iconName}>
               <img
                 src={iconSrc}
                 alt="iconName"

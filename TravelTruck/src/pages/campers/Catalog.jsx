@@ -1,4 +1,5 @@
 import SearchButton from "../../components/SearchButton";
+import VehicleType from "../../components/VehicleType";
 import VeicleEqp from "../../components/VeicleEqp";
 import css from "../../styles/catalogPage.module.css";
 import { useState } from "react";
@@ -26,6 +27,8 @@ export default function Catalog() {
           <p className={css.devider}></p>
           <VeicleEqp />
           <div>Vehicle type</div>
+          <p className={css.devider}></p>
+          <VehicleType />
           <SearchButton />
         </div>
         <div></div>

@@ -1,0 +1,20 @@
+
+button{
+    width: 112px;
+    height: 96px;
+    background-color: transparent;
+    border: 1px solid var(--light-grey);
+    border-radius: 10px;
+
+}
+button:hover{
+    border: 1px solid var(--orange);
+    cursor: pointer;
+}
+
+ul{
+    display: flex;
+    gap: 24px;
+    list-style: none;
+    padding: 0;
+}

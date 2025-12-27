@@ -15,8 +15,8 @@ export default function VehicleType() {
       {Object.entries(icons).map(([icon, iconSrc]) => {
         const iconName = icon;
         return (
-          <button>
-            <li key={iconName}>
+          <button key={iconName}>
+            <li >
               <img
                 src={iconSrc}
                 alt={iconName}

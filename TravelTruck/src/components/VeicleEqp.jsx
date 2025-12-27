@@ -18,10 +18,9 @@ export default function VeicleEqp() {
     <ul className={css.ul}>
       {Object.entries(icons).map(([icon, iconSrc]) => {
         const iconName = icon;
-        console.log(iconName);
         return (
-          <button className={css.listItem}>
-            <li key={iconName}>
+          <button className={css.listItem} key={iconName}>
+            <li >
               <img
                 src={iconSrc}
                 alt="iconName"

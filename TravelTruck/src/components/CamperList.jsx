@@ -1,16 +1,24 @@
 import camperList from "../assets/data/campersList.json";
 import CamperCard from "./camperCard";
 import css from "../styles/camperList.module.css";
+import { useState } from "react";
+import LoadMoreBtn from "./LoadMoreBtn";
 
 export default function CamperList() {
   const campers = camperList.items;
-  const startIndex = 0;
+  const [campersPerPage, setCampersPerPage] = useState(4);
+  const pageCampers = campers.slice(0, campersPerPage);
+  console.log("setCout:", setCampersPerPage);
+  const handleLoadMore = () => {
+    setCampersPerPage((prev) => prev + 4);
+  };
 
   return (
     <>
-      {campers.map((camper) => {
+      {pageCampers.map((camper) => {
         return <CamperCard key={camper.id} camper={camper} />;
       })}
+      <LoadMoreBtn onclick={handleLoadMore} />
     </>
   );
 }

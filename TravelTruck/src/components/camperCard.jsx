@@ -3,6 +3,7 @@ import heart from "../assets/icons/Heart.svg";
 import map from "../assets/icons/Map.svg";
 import css from "../styles/camperCard.module.css";
 
+
 //Bu komponent her bir karavanda tekrar eden kart bilgilerini içerir
 export default function CamperCard({ camper }) {
   const reviewsLenght = camper.reviews.lenght;

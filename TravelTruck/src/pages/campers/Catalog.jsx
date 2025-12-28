@@ -5,6 +5,7 @@ import css from "../../styles/catalogPage.module.css";
 import { useState } from "react";
 import React from "react";
 import CamperList from "../../components/CamperList";
+import LoadMoreBtn from "../../components/LoadMoreBtn";
 
 export default function Catalog() {
   const [inputValue, setInputValue] = useState("");
@@ -31,10 +32,12 @@ export default function Catalog() {
           <VehicleType />
           <SearchButton />
         </div>
-        <div>
+        <div className={css.camperList}>
           <CamperList />
+          <LoadMoreBtn />
         </div>
       </div>
+     
     </>
   );
 }

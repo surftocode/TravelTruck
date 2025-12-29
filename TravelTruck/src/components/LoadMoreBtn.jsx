@@ -1,9 +1,9 @@
 import css from "../styles/loadMoreBtn.module.css";
 
-export default function LoadMoreBtn() {
+export default function LoadMoreBtn({onClick}) {
   return (
     <>
-      <button className={css.loadMoreBtn}>Load More</button>
+      <button onClick={onClick} className={css.loadMoreBtn}>Load More</button>
     </>
   );
 }

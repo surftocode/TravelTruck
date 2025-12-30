@@ -7,19 +7,12 @@ import LoadMoreBtn from "./LoadMoreBtn";
 export default function CamperList() {
   const campers = camperList.items;
   const [campersPerPage, setCampersPerPage] = useState(4);
-  const [showResults, setShowResults] = useState(true);
-  const pageCampers = campers.slice(0, campersPerPage);
-  // useEffect(() => {
-  //   const campersToShow = campers.slice(0, campersPerPage);
 
-  // }, [ campersPerPage]);
-  // const pageCampers = campers.slice(0, campersPerPage);
+  const pageCampers = campers.slice(0, campersPerPage);
+  const allCampersShown = campersPerPage >= campers.length;
   const handleLoadMore = () => {
-    console.log("handleLoadMore çalıştı");
     setCampersPerPage((prev) => prev + 4);
   };
-
-
 
   return (
     <>
@@ -27,7 +20,7 @@ export default function CamperList() {
         return <CamperCard key={camper.id} camper={camper} />;
       })}
 
-      {<LoadMoreBtn onClick={showBtn} />}
+      {!allCampersShown && <LoadMoreBtn onClick={handleLoadMore} />}
     </>
   );
 }

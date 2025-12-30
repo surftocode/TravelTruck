@@ -1,0 +1,5 @@
+.devider{
+    width: 360px;
+    border: 1px solid var(--light-grey);
+    margin: 24px 0px;
+  }

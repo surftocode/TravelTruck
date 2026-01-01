@@ -6,7 +6,6 @@
 
 .card {
   width: 888px;
-  height: 368px;
   border: 1px solid var(--light-grey);
   border-radius: 20px;
   display: flex;
@@ -18,17 +17,17 @@
 .camperExpDiv {
   display: flex;
   flex-direction: column;
-  
+  align-items: start;
+  gap: 24px;
 }
 
 .camperExp {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: start;
-  
 }
-.camperName{
-  margin-right:200px;
+.camperName {
+  margin-right: 200px;
 }
 
 .fav {
@@ -41,8 +40,6 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  
- 
 }
 .rating {
   width: 10px;
@@ -53,4 +50,27 @@
   margin-left: 8px;
   width: 16px;
   height: 16px;
+}
+
+.campersEqpDiv {
+  width: 524px;
+  gap:8px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+.campersEqp {
+  border-radius: 100px;
+  width: 148px;
+  height: 48px;
+  background-color: var(--very-light-grey);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.campersEqpIcon {
+  width: 20px;
+  height: 20px;
 }

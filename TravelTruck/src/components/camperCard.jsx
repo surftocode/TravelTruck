@@ -10,7 +10,8 @@ import radio from "../assets/icons/radio.svg";
 import microwave from "../assets/icons/lucide_microwave.svg";
 import gas from "../assets/icons/petrol.svg";
 import water from "../assets/icons/ion_water-outline.svg";
-
+import refrigarator from "../assets/icons/solar_fridge-outline.svg";
+import ShowMoreBtn from "./ShowMoreBtn";
 //Bu komponent her bir karavanda tekrar eden kart bilgilerini içerir
 export default function CamperCard({ camper, onClick }) {
   const reviewsLenght = camper.reviews.lenght;
@@ -24,6 +25,7 @@ export default function CamperCard({ camper, onClick }) {
     microwave: microwave,
     gas: gas,
     water: water,
+    refrigerator: refrigarator,
   };
   const descArry = camper.description.split(" ", 10);
   const sumDesc = descArry.join(" ").toString();
@@ -44,20 +46,24 @@ export default function CamperCard({ camper, onClick }) {
           <span>{camper.location}</span>
         </div>
         <div className={css.description}>{sumDesc}...</div>
-        <div >
+        <div className={css.campersEqpDiv}>
           {Object.entries(camper).map(([key, value]) => {
             if (value === true) {
               return (
-                <div key={key} >
-                  <img src={haveIt[key]} alt={key} />
-                  <span>{key}</span>
-                  
+                <div key={key} className={css.campersEqp}>
+                  <img
+                    src={haveIt[key]}
+                    alt={key}
+                    className={css.campersEqpIcon}
+                  />
+                  <span className={css.campersEqpname}>{key}</span>
                 </div>
               );
             }
             return null;
           })}
         </div>
+        <ShowMoreBtn onClick={onClick} />
       </div>
     </div>
   );

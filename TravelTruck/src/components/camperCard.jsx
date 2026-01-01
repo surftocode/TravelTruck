@@ -12,8 +12,10 @@ import gas from "../assets/icons/petrol.svg";
 import water from "../assets/icons/ion_water-outline.svg";
 import refrigarator from "../assets/icons/solar_fridge-outline.svg";
 import ShowMoreBtn from "./ShowMoreBtn";
+import CamperDetails from "../pages/camperDetails/CamperDetails";
+import { Link } from "react-router-dom";
 //Bu komponent her bir karavanda tekrar eden kart bilgilerini içerir
-export default function CamperCard({ camper, onClick }) {
+export default function CamperCard({ camper }) {
   const reviewsLenght = camper.reviews.lenght;
   const camperImg = camper.gallery[0].thumb;
   const haveIt = {
@@ -29,6 +31,14 @@ export default function CamperCard({ camper, onClick }) {
   };
   const descArry = camper.description.split(" ", 10);
   const sumDesc = descArry.join(" ").toString();
+  const handleClick = (camper) => {
+ window.location.href = `/camperDetails?camperId=${camper.id}`;
+    console.log("camper in handleClick", camper);
+    
+    console.log("handleClick worked");
+    console.log("camper id", camper.id);
+    
+  };
 
   return (
     <div className={css.card}>
@@ -63,7 +73,7 @@ export default function CamperCard({ camper, onClick }) {
             return null;
           })}
         </div>
-        <ShowMoreBtn onClick={onClick} />
+        <ShowMoreBtn onClick={handleClick} />
       </div>
     </div>
   );

@@ -2,9 +2,10 @@ import Header from "../../components/Header.jsx";
 import css from "../../styles/CamperDetails.module.css";
 import star from "../../assets/icons/Rating.svg";
 import map from "../../assets/icons/map.svg";
+import {useParams} from "react-router-dom";
 
 export default function CamperDetails({ camper }) {
-  return (
+  const { id } = useParams();
     <>
       <Header />
       <div className={css.name}>

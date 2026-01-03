@@ -11,8 +11,8 @@ export default function App() {
         <Header />
         <Routes>
           <Route path="/" element={<Home />}></Route>
-          <Route path="/campers" element={<Catalog />}></Route>
-          <Route path="/campers/:camperId" element={<CamperDetails />} />
+          <Route path="/catalog" element={<Catalog />} />
+          <Route path="/catalog/:id" element={<CamperDetails />} />
         </Routes>
       </BrowserRouter>
     </>

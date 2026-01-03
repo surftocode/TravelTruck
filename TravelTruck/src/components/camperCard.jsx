@@ -13,11 +13,19 @@ import water from "../assets/icons/ion_water-outline.svg";
 import refrigarator from "../assets/icons/solar_fridge-outline.svg";
 import ShowMoreBtn from "./ShowMoreBtn";
 import CamperDetails from "../pages/camperDetails/CamperDetails";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import camperList from "../assets/data/campersList.json";
+
 //Bu komponent her bir karavanda tekrar eden kart bilgilerini içerir
 export default function CamperCard({ camper }) {
+  const navigate = useNavigate();
+  const campers = camperList.items;
+  // const camper = campers.find((c) => {
+  //   c.id === camper.id;
+  // });
   const reviewsLenght = camper.reviews.lenght;
   const camperImg = camper.gallery[0].thumb;
+
   const haveIt = {
     AC: AC,
     TV: TV,
@@ -31,13 +39,11 @@ export default function CamperCard({ camper }) {
   };
   const descArry = camper.description.split(" ", 10);
   const sumDesc = descArry.join(" ").toString();
-  const handleClick = (camper) => {
- window.location.href = `/camperDetails?camperId=${camper.id}`;
-    console.log("camper in handleClick", camper);
-    
+  const handleClick = () => {
+    navigate(`/catalog/${camper.id}`);
+    console.log("camper in handleClick");
     console.log("handleClick worked");
-    console.log("camper id", camper.id);
-    
+    <CamperDetails />;
   };
 
   return (

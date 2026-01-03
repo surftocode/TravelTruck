@@ -20,9 +20,7 @@ import camperList from "../assets/data/campersList.json";
 export default function CamperCard({ camper }) {
   const navigate = useNavigate();
   const campers = camperList.items;
-  // const camper = campers.find((c) => {
-  //   c.id === camper.id;
-  // });
+
   const reviewsLenght = camper.reviews.lenght;
   const camperImg = camper.gallery[0].thumb;
 

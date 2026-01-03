@@ -1,5 +1,44 @@
-.devider{
-    width: 360px;
-    border: 1px solid var(--light-grey);
-    margin: 24px 0px;
-  }
+.devider {
+  width: 360px;
+  border: 1px solid var(--light-grey);
+  margin: 24px 0px;
+}
+
+.body {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin:64px;
+  gap:64px
+}
+
+.name {
+  width: 1312px;
+  
+}
+.rating{
+
+  margin-top: 10px ;
+}
+
+.location{
+  margin-left: 16px;
+}
+.price{
+  margin-top: 8px ;
+}
+
+.image{
+  
+  display: flex;
+ justify-content: center;
+ gap:32px;
+}
+
+.singleImg{
+
+  width: 292px;
+  height: 312px;
+  border-radius: 10px;
+  
+}

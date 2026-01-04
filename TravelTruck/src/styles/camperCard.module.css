@@ -58,19 +58,3 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
 }
-.campersEqp {
-  border-radius: 100px;
-  width: 148px;
-  height: 48px;
-  background-color: var(--very-light-grey);
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-}
-
-.campersEqpIcon {
-  width: 20px;
-  height: 20px;
-}

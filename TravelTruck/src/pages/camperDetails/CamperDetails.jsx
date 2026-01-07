@@ -13,17 +13,13 @@ export default function CamperDetails() {
   const camper = camperList.items.find(({ id }) => id === params.id);
   console.log("params:", params);
   console.log("camper info:", camper);
-  const reviewsLenght = camper.reviews.lenght;
+  const reviewsLenght = camper.reviews.length;
   const [drop, setDrop] = useState("Features");
 
-
   const handleDrop = (section) => {
-    // setDrop(section);
-    // console.log("Dropped section:", section);
- 
-
-
-  }
+    setDrop(section);
+    console.log("Dropped section:", section);
+  };
   return (
     <>
       <div className={css.body}>
@@ -48,15 +44,15 @@ export default function CamperDetails() {
         </div>
         <p className={css.desc}>{camper.description}</p>
         <div className={css.navbar}>
-          <h3 onClick={handleDrop("Features")}> Features</h3>
-          <h3 onClick={handleDrop("Reviews")}>Reviews</h3>
+          <h3 onClick={() => handleDrop("Features")}> Features</h3>
+          <h3 onClick={() => handleDrop("Reviews")}>Reviews</h3>
         </div>
 
         <p className={css.devider}></p>
         <div>
-          {drop==="Features" && <Features id={camper.id}/>}
-          {drop==="Reviews" && <Reviews id={camper.id}/>}
-          </div>
+          {drop === "Features" && <Features camper={camper} />}
+          {drop === "Reviews" && <Reviews id={camper} />}
+        </div>
       </div>
     </>
   );

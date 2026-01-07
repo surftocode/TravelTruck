@@ -54,7 +54,26 @@
 
 .campersEqpDiv {
   width: 524px;
-  gap:8px;
+  gap: 8px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+}
+
+.devider {
+  width: 360px;
+  border: 1px solid var(--light-grey);
+}
+
+.vehicleDetails {
+  
+
+  align-items: center;
+  gap: 16px;
+}
+
+.detailItem{
+
+  display: flex;
+ flex-wrap: wrap;;
+
 }

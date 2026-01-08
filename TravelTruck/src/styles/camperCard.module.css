@@ -64,16 +64,36 @@
   border: 1px solid var(--light-grey);
 }
 
-.vehicleDetails {
-  
-
+.item {
+  display: flex;
+  flex-direction: row;
   align-items: center;
-  gap: 16px;
+ 
 }
 
-.detailItem{
-
+.itemExp {
   display: flex;
- flex-wrap: wrap;;
+  flex-direction: column;
+}
 
+.main {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.leftSide {
+  background-color: var(--very-light-grey);
+  padding: 44px 80px;
+  width: 631px;
+  height: 588px;
+  justify-content: center;
+  border-radius: 10px;
+  gap: 50px;
+  display: flex;
+  flex-direction: column;
+}
+table{
+  margin-top:12px;
+  gap:16px;
 }

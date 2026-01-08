@@ -2,7 +2,7 @@
     border-radius: 100px;
     width: 148px;
     height: 48px;
-    background-color: var(--very-light-grey);
+    background-color: var(--light-grey);
     display: flex;
     flex-direction: row;
     align-items: center;

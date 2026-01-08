@@ -5,39 +5,52 @@ export default function Features({ camper }) {
   console.log("camper in features:", camper);
   return (
     <>
-      <div className={css.campersEqpDiv}>
-        <CamperHasVehicles
-          camper={camper}
-          style={{ widht: "527px", height: "104px" }}
-        />
-      </div>
+      <div className={css.main}>
+        <div className={css.leftSide}>
+          <div className={css.campersEqpDiv}>
+            <CamperHasVehicles
+              camper={camper}
+            />
+          </div>
+          <div>
+            <h3 style={{ marginTop: "16px", marginBottom: "16px" }}>
+              Vehicle Details
+            </h3>
+            <p className={css.devider}></p>
 
-      <div>
-        <h3 style={{ marginTop: "32px", marginBottom: "32px" }}>
-          Vehicle Details
-        </h3>
-        <p className={css.devider}></p>
-        <div className={css.vehicleDetails}>
-          <ul key={camper.id} >
-            <li className={css.detailItem}>
-              <p>Form</p> {camper.form}
-            </li>
-            <li>
-              <p>Length</p> {camper.length}
-            </li>
-            <li>
-              <p>Width</p> {camper.width}
-            </li>
-            <li>
-              <p>Height</p> {camper.height}
-            </li>
-            <li>
-              <p>Tank</p> {camper.tank}
-            </li>
-            <li>
-              <p>Consumption</p> {camper.consumption}
-            </li>
-          </ul>
+            <table>
+              <tbody className={css.tableBody}>
+                <tr className={css.detailItem}>
+                  <td className={css.item}>Form</td>
+                  <td>{camper.form}</td>
+                </tr>
+                <tr className={css.detailItem}>
+                  <td className={css.item}>Length</td>
+                  <td>{camper.length}</td>
+                </tr>
+                <tr className={css.detailItem}>
+                  <td className={css.item}>Width</td>
+                  <td>{camper.width}</td>
+                </tr>
+                <tr className={css.detailItem}>
+                  <td className={css.item}>Height</td>
+                  <td>{camper.height}</td>
+                </tr>
+                <tr className={css.detailItem}>
+                  <td className={css.item}>Tank</td>
+                  <td>{camper.tank}</td>
+                </tr>
+                <tr className={css.detailItem}>
+                  <td className={css.item}>Consumption</td>
+                  <td>{camper.consumption}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div>
+          
+          <h3>ikinci div</h3>
         </div>
       </div>
     </>

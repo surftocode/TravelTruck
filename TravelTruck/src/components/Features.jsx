@@ -22,7 +22,7 @@ export default function Features({ camper }) {
               <tbody className={css.tableBody}>
                 <tr className={css.detailItem}>
                   <td className={css.item}>Form</td>
-                  <td>{camper.form}</td>
+                  <td >{camper.form}</td>
                 </tr>
                 <tr className={css.detailItem}>
                   <td className={css.item}>Length</td>
@@ -48,9 +48,9 @@ export default function Features({ camper }) {
             </table>
           </div>
         </div>
-        <div>
+        <div className={css.rightSide}>
           
-          <h3>ikinci div</h3>
+         
         </div>
       </div>
     </>

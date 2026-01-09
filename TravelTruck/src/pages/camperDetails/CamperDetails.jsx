@@ -51,7 +51,7 @@ export default function CamperDetails() {
         <p className={css.devider}></p>
         <div>
           {drop === "Features" && <Features camper={camper} />}
-          {drop === "Reviews" && <Reviews id={camper} />}
+          {drop === "Reviews" && <Reviews camper={camper} />}
         </div>
       </div>
     </>

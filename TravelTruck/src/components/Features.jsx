@@ -1,9 +1,9 @@
 import CamperHasVehicles from "../components/CamperHasVehicles.jsx";
-import css from "../styles/camperCard.module.css";
+import css from "../styles/FeatureRevDiv.module.css";
 import Form from "../components/Form.jsx"
 
 export default function Features({ camper }) {
-  console.log("camper in features:", camper);
+ 
   return (
     <>
       <div className={css.main}>

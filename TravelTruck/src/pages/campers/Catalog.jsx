@@ -2,12 +2,23 @@ import SearchButton from "../../components/SearchButton";
 import VehicleType from "../../components/VehicleType";
 import VeicleEqp from "../../components/VeicleEqp";
 import css from "../../styles/catalogPage.module.css";
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import React from "react";
 import CamperList from "../../components/CamperList";
+import axios from "axios";
+import SearchLocation from "../../components/SearchLocation";
 
 export default function Catalog() {
-  const [inputValue, setInputValue] = useState("");
+
+  const [query,setQuery]=useState("")
+ useEffect(()=>{
+  const fetchData=async()=>{
+    const res=await axios.get("../../assets/data/campersList.json");
+    console.log(res.items)
+    setQuery(res.items)
+  };
+  if(query.length===0||query.length>2) fetchData();
+ },[])
   return (
     <>
       <div className={css.bodyDiv}>
@@ -17,9 +28,9 @@ export default function Catalog() {
             type="text"
             placeholder="city"
             onChange={(e) => {
-              setInputValue(e.target.value);
+              setQuery(e.target.value.toLowerCase());
             }}
-          ></input>
+          >{<SearchLocation data={query.items}/>}</input>
           <p className={css.filtersText}>Filters</p>
           <div className={css.equipments}>
             <h3>Vehicle equipments </h3>

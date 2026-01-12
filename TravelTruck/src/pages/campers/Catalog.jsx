@@ -11,14 +11,14 @@ import SearchLocation from "../../components/SearchLocation";
 export default function Catalog() {
 
   const [query,setQuery]=useState("")
- useEffect(()=>{
-  const fetchData=async()=>{
-    const res=await axios.get("../../assets/data/campersList.json");
-    console.log(res.items)
-    setQuery(res.items)
-  };
-  if(query.length===0||query.length>2) fetchData();
- },[])
+//  useEffect(()=>{
+//   const fetchData=async()=>{
+//     const res=await axios.get("../../assets/data/campersList.json");
+//     console.log(res.items)
+//     setQuery(res.items)
+//   };
+//   if(query.length===0||query.length>2) fetchData();
+//  },[])
   return (
     <>
       <div className={css.bodyDiv}>

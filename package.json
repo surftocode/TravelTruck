@@ -5,5 +5,14 @@
     "react-dom": "^19.2.3",
     "react-router-dom": "^7.11.0",
     "redux": "^5.0.1"
-  }
+  },
+
+    "scripts":{
+      "build": "vite build",
+      "preview": "vite preview"
+  
 }
+  
+}
+
+

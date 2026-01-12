@@ -1,6 +1,6 @@
 import Button from "../../components/Button";
 import React from "react";
-import camper from "../../assets/images/camper.jpg";
+import camper from "../../public/assets/images/camper.jpg";
 import css from "../../styles/Home.module.css";
 
 const handleClick = () => {

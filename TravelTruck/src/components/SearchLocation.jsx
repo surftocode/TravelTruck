@@ -1,18 +1,15 @@
-export default function SearchLocation({ data }) {
-  console.log("data bilgisi:", data);
+const SearchLocation = ({ datas }) => {
+  console.log("data bilgisi:", datas);
   return (
-    <>
-      <table>
-        <tbody>
-          {data.map((d, index) => {
-            return (
-              <tr key={index}>
-                <td>{d.location} </td>
-              </tr>
-            );
-          })}
-        </tbody>
-      </table>
-    </>
+    <ul>
+      {datas.map(({ location, index, id }) => (
+        <li key={index}>
+          <a href={`/catalog/${id}`} target="_blank" />
+          {location}
+        </li>
+      ))}
+    </ul>
   );
-}
+};
+
+export { SearchLocation };

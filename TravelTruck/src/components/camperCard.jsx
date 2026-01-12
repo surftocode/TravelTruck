@@ -1,6 +1,6 @@
-import star from "../assets/icons/Rating.svg";
-import heart from "../assets/icons/Heart.svg";
-import map from "../assets/icons/Map.svg";
+import star from "../public/assets/icons/Rating.svg";
+import heart from "../public/assets/icons/Heart.svg";
+import map from "../public/assets/icons/Map.svg";
 import css from "../styles/camperCard.module.css";
 
 import ShowMoreBtn from "./ShowMoreBtn";
@@ -20,8 +20,7 @@ export default function CamperCard({ camper }) {
   const sumDesc = descArry.join(" ").toString();
   const handleClick = () => {
     navigate(`/catalog/${camper.id}`);
-    console.log("camper in handleClick");
-    console.log("handleClick worked");
+   
     <CamperDetails />;
   };
 

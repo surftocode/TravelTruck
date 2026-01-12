@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import css from "../styles/Header.module.css";
-import logo from "../assets/icons/Logo.svg";
+import logo from "../public/assets/icons/Logo.svg";
 import{useLocation} from"react-router-dom";
 
 

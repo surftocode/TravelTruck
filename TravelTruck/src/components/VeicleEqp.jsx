@@ -1,9 +1,9 @@
 import React from "react";
-import AC from "../assets/icons/AC.svg?react";
-import Bathroom from "../assets/icons/Bathroom.svg?react";
-import Automatic from "../assets/icons/Automatic.svg?react";
-import Kitchen from "../assets/icons/Kitchen.svg?react";
-import TV from "../assets/icons/TV.svg?react";
+import AC from "../public/assets/icons/AC.svg?react";
+import Bathroom from "../public/assets/icons/Bathroom.svg?react";
+import Automatic from "../public/assets/icons/Automatic.svg?react";
+import Kitchen from "../public/assets/icons/Kitchen.svg?react";
+import TV from "../public/assets/icons/TV.svg?react";
 import css from "../styles/equipments.module.css";
 export default function VeicleEqp() {
   const icons = {

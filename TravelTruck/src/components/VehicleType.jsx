@@ -1,7 +1,7 @@
 import React from "react";
-import Van from "../assets/icons/van.svg?react";
-import Integrated from "../assets/icons/integrated.svg?react";
-import Alcove from "../assets/icons/alcove.svg?react";
+import Van from "../public/assets/icons/van.svg?react";
+import Integrated from "../public/assets/icons/integrated.svg?react";
+import Alcove from "../public/assets/icons/alcove.svg?react";
 import css from "../styles/vehicleType.module.css";
 
 export default function VehicleType() {

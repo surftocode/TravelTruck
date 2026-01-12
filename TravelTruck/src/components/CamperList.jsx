@@ -1,4 +1,4 @@
-import camperList from "../assets/data/campersList.json";
+import camperList from "../public/assets/data/campersList.json";
 import CamperCard from "./camperCard";
 import css from "../styles/camperList.module.css";
 import { useState } from "react";

@@ -5,7 +5,6 @@ import css from "../../styles/catalogPage.module.css";
 import { useState,useEffect } from "react";
 import React from "react";
 import CamperList from "../../components/CamperList";
-import axios from "axios";
 import SearchLocation from "../../components/SearchLocation";
 
 export default function Catalog() {

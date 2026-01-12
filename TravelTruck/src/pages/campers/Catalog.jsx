@@ -5,37 +5,54 @@ import css from "../../styles/catalogPage.module.css";
 import { useState, useEffect } from "react";
 import React from "react";
 import CamperList from "../../components/CamperList";
-import {SearchLocation} from "../../components/SearchLocation";
+import { SearchLocation } from "../../components/SearchLocation";
 import axios from "axios";
 
 export default function Catalog() {
   const [query, setQuery] = useState("");
-  const [location, setLocation] = useState([]);
+  const [data, setData] = useState([]);
+  const [isOpen, setIsOpen] = useState(false);
+  const [filteredData, setFilteredData] = useState([]);
   useEffect(() => {
     const fetchData = async () => {
-      const res = await axios.get("../../public/assets/data/campersList.json");
-      console.log("fetch Data:", res.data.items);
-      setLocation(res.data.items);
+      try {
+        const res = await axios.get("/assets/data/campersList.json");
+
+        console.log("fetch Data:", res.data.items);
+        setData(res.data.items);
+        setFilteredData(res.data.items);
+      } catch (err) {
+        console.error("Error fetching data:", err);
+      }
     };
     if (query.length === 0 || query.length > 2) fetchData();
   }, []);
-  const filteredLocation=location.filter((item)=>{
-    return item.toLowercase().includes(query);
-  })
+
+  const handleSearch = (e) => {
+    const value = e.target.value;
+    setQuery(value);
+    if(value.length === 0){
+      setFilteredData(data);
+      setIsOpen(false);
+      return;
+    }
+    const filteredLocation = data.filter((item) => {
+      return item.location.toLowerCase().includes(value.toLowerCase());
+    });
+    console.log("filtered location:", filteredLocation);
+    setFilteredData(filteredLocation);
+    setIsOpen(true);
+    return;
+  };
+
   return (
     <>
       <div className={css.bodyDiv}>
         <div className={css.location}>
           <p className={css.locationText}>Location</p>
-          <input
-            type="text"
-            placeholder="city"
-            onChange={(e) => {
-              setQuery(e.target.value.toLowerCase());
-            }}
-          />
-            {<SearchLocation datas={filteredLocation} />}
-         
+          <input type="text" placeholder="city" onChange={handleSearch} />
+          {isOpen && <SearchLocation datas={filteredData} />}
+
           <p className={css.filtersText}>Filters</p>
           <div className={css.equipments}>
             <h3>Vehicle equipments </h3>

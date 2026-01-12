@@ -3,7 +3,7 @@ import css from "../../styles/CamperDetails.module.css";
 import star from "../../public/assets/icons/Rating.svg";
 import map from "../../public/assets/icons/map.svg";
 import { Route, useParams } from "react-router-dom";
-import camperList from "../../public/assets/data/campersList.json";
+import camperList from "../../../public/assets/data/campersList.json";
 import Features from "../../components/Features.jsx";
 import Reviews from "../../components/Reviews.jsx";
 import { useState } from "react";

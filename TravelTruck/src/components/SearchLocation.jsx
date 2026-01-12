@@ -1,12 +1,11 @@
+import CamperCard from "./camperCard";
+
 const SearchLocation = ({ datas }) => {
   console.log("data bilgisi:", datas);
   return (
-    <ul>
-      {datas.map(({ location, index, id }) => (
-        <li key={index}>
-          <a href={`/catalog/${id}`} target="_blank" />
-          {location}
-        </li>
+    <ul style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
+      {datas.map((location, index) => (
+        <li key={index}>{location.location}</li>
       ))}
     </ul>
   );

@@ -11,8 +11,9 @@ import axios from "axios";
 export default function Catalog() {
   const [query, setQuery] = useState("");
   const [data, setData] = useState([]);
-  const [isOpen, setIsOpen] = useState(false);
   const [filteredData, setFilteredData] = useState([]);
+  const [selectedEqp,setSelectedEqp]=useState([])
+  const [displayedCampers, setDisplayedCampers] = useState([]);
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -28,30 +29,20 @@ export default function Catalog() {
     if (query.length === 0 || query.length > 2) fetchData();
   }, []);
 
-  const handleSearch = (e) => {
-    const value = e.target.value;
-    setQuery(value);
-    if(value.length === 0){
-      setFilteredData(data);
-      setIsOpen(false);
-      return;
-    }
-    const filteredLocation = data.filter((item) => {
-      return item.location.toLowerCase().includes(value.toLowerCase());
-    });
-    console.log("filtered location:", filteredLocation);
-    setFilteredData(filteredLocation);
-    setIsOpen(true);
-    return;
-  };
 
   return (
     <>
       <div className={css.bodyDiv}>
         <div className={css.location}>
           <p className={css.locationText}>Location</p>
-          <input type="text" placeholder="city" onChange={handleSearch} />
-          {isOpen && <SearchLocation datas={filteredData} />}
+          <input
+            type="text"
+            placeholder="city"
+            onChange={(e) => {
+              e.target.value;
+            }}
+          />
+          {/* {isOpen && <SearchLocation datas={filteredData}  />} */}
 
           <p className={css.filtersText}>Filters</p>
           <div className={css.equipments}>

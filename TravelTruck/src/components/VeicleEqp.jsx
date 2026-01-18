@@ -6,8 +6,7 @@ import Kitchen from "../public/assets/icons/Kitchen.svg?react";
 import TV from "../public/assets/icons/TV.svg?react";
 import css from "../styles/equipments.module.css";
 
-
-export default function VeicleEqp() {
+export default function VeicleEqp({ selectedEqp = [], onEqpChange }) {
   const equipments = [
     { name: "AC", Icon: AC },
     { name: "Automatic", Icon: Automatic },
@@ -16,12 +15,23 @@ export default function VeicleEqp() {
     { name: "Bathroom", Icon: Bathroom },
   ];
 
+  const handleClick = (equipmentName) => {
+    const selected = selectedEqp.includes(equipmentName)
+      ? selectedEqp.filter(equipmentName)
+      : [...selectedEqp, equipmentName];
+    onEqpChange(selected);
+  };
+
   return (
     <ul className={css.ul}>
       {equipments.map(({ name, Icon }) => {
         return (
           <li key={name}>
-            <button className={css.listItem} type="button">
+            <button
+              className={css.listItem}
+              type="button"
+              onClick={() => handleClick(name)}
+            >
               <img src={Icon} style={{ width: "32px", height: "32px" }} />
               <span> {name}</span>
             </button>

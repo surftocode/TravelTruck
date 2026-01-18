@@ -11,8 +11,12 @@ import axios from "axios";
 export default function Catalog() {
   const [query, setQuery] = useState("");
   const [data, setData] = useState([]);
-  const [filteredData, setFilteredData] = useState([]);
-  const [selectedEqp,setSelectedEqp]=useState([])
+  const [filteredData, setFilteredData] = useState({
+    selectedEqp: [],
+    vehicleType: [],
+    location: "",
+  });
+  const [selectedEqp, setSelectedEqp] = useState([]);
   const [displayedCampers, setDisplayedCampers] = useState([]);
   useEffect(() => {
     const fetchData = async () => {
@@ -29,6 +33,10 @@ export default function Catalog() {
     if (query.length === 0 || query.length > 2) fetchData();
   }, []);
 
+  const handleSelectedEqp = (selected) => {
+    setSelectedEqp((prev)=>({...prev,selectedEqp:selected}));
+    console.log("selected eqp:", selectedEqp);
+  }
 
   return (
     <>
@@ -49,7 +57,10 @@ export default function Catalog() {
             <h3>Vehicle equipments </h3>
           </div>
           <p className={css.devider}></p>
-          <VeicleEqp />
+          <VeicleEqp
+            selectedEqp={filteredData.selectedEqp}
+            onEqpChange={()=>handleSelectedEqp(selectedEqp)}
+          />
           <h3>Vehicle type</h3>
           <p className={css.devider}></p>
           <VehicleType />

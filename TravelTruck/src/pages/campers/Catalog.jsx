@@ -12,11 +12,11 @@ export default function Catalog() {
   const [query, setQuery] = useState("");
   const [data, setData] = useState([]);
   const [filteredData, setFilteredData] = useState({
-    selectedEqp: [],
+    equipment: [],
     vehicleType: [],
     location: "",
   });
-  const [selectedEqp, setSelectedEqp] = useState([]);
+
   const [displayedCampers, setDisplayedCampers] = useState([]);
   useEffect(() => {
     const fetchData = async () => {
@@ -34,8 +34,8 @@ export default function Catalog() {
   }, []);
 
   const handleSelectedEqp = (selected) => {
-    setSelectedEqp((prev)=>({...prev,selectedEqp:selected}));
-    console.log("selected eqp:", selectedEqp);
+    setFilteredData((prev)=>({...prev,equipment: selected}));
+    console.log("filteredData in Catalog:", filteredData);
   }
 
   return (
@@ -59,7 +59,7 @@ export default function Catalog() {
           <p className={css.devider}></p>
           <VeicleEqp
             selectedEqp={filteredData.selectedEqp}
-            onEqpChange={()=>handleSelectedEqp(selectedEqp)}
+            onEqpChange={()=>handleSelectedEqp(filteredData.selectedEqp)}
           />
           <h3>Vehicle type</h3>
           <p className={css.devider}></p>

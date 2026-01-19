@@ -19,6 +19,8 @@ export default function VeicleEqp({ selectedEqp = [], onEqpChange }) {
     const selected = selectedEqp.includes(equipmentName)
       ? selectedEqp.filter(equipmentName)
       : [...selectedEqp, equipmentName];
+    console.log("selected:", selected);
+    console.log("equipmentName:", equipmentName);
     onEqpChange(selected);
   };
 

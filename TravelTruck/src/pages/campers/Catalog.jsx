@@ -18,25 +18,45 @@ export default function Catalog() {
   });
 
   const [displayedCampers, setDisplayedCampers] = useState([]);
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const res = await axios.get("/assets/data/campersList.json");
+  useState(()=>{
+    console.log("filtered data:", filteredData)
 
-        console.log("fetch Data:", res.data.items);
-        setData(res.data.items);
-        setFilteredData(res.data.items);
-      } catch (err) {
-        console.error("Error fetching data:", err);
-      }
-    };
-    if (query.length === 0 || query.length > 2) fetchData();
-  }, []);
+  },[filteredData])
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     try {
+  //       const res = await axios.get("/assets/data/campersList.json");
+
+  //       console.log("fetch Data:", res.data.items);
+  //       setData(res.data.items);
+  //       setFilteredData(res.data.items);
+  //     } catch (err) {
+  //       console.error("Error fetching data:", err);
+  //     }
+  //   };
+  //   if (query.length === 0 || query.length > 2) fetchData();
+  // }, []);
 
   const handleSelectedEqp = (selected) => {
-    setFilteredData((prev)=>({...prev,equipment: selected}));
-    console.log("filteredData in Catalog:", filteredData);
-  }
+    console.log("first selected:", selected);
+    setFilteredData((prev) => ({ ...prev, equipment: selected }));
+    console.log("filteredData in Catalog:", filteredData.equipment);
+  };
+
+  const handleLocationChange = (location) => {
+    setFilteredData((prev) => ({ ...prev, location: location }));
+    console.log("location in Catalog:", filteredData.location);
+  };
+
+  const handleVehicleTypeChange = (type) => {
+    console.log("recieve Type:", type);
+    console.log("current filtered data:",filteredData);
+    setFilteredData((prev) => ({ ...prev, vehicleType: type }));
+    console.log("vehicleType", filteredData.vehicleType);
+  };
+  const handleToogle = () => {
+    setDisplayedCampers(filteredData);
+  };
 
   return (
     <>
@@ -47,10 +67,9 @@ export default function Catalog() {
             type="text"
             placeholder="city"
             onChange={(e) => {
-              e.target.value;
+              handleLocationChange(e.target.value);
             }}
           />
-          {/* {isOpen && <SearchLocation datas={filteredData}  />} */}
 
           <p className={css.filtersText}>Filters</p>
           <div className={css.equipments}>
@@ -58,16 +77,19 @@ export default function Catalog() {
           </div>
           <p className={css.devider}></p>
           <VeicleEqp
-            selectedEqp={filteredData.selectedEqp}
-            onEqpChange={()=>handleSelectedEqp(filteredData.selectedEqp)}
+            selectedEqp={filteredData.equipment}
+            onEqpChange={handleSelectedEqp}
           />
           <h3>Vehicle type</h3>
           <p className={css.devider}></p>
-          <VehicleType />
-          <SearchButton />
+          <VehicleType
+            selectedType={filteredData.vehicleType}
+            onTypeChange={handleVehicleTypeChange}
+          />
+          <SearchButton onClick={() => onSearch()} />
         </div>
         <div className={css.camperList}>
-          <CamperList />
+          <CamperList onClick={() => handleToogle()} />
         </div>
       </div>
     </>

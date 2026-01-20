@@ -4,25 +4,41 @@ import Integrated from "../public/assets/icons/integrated.svg?react";
 import Alcove from "../public/assets/icons/alcove.svg?react";
 import css from "../styles/vehicleType.module.css";
 
-export default function VehicleType() {
-  const icons = {
-    Van: Van,
-    Integrated: Integrated,
-    Alcove: Alcove,
+export default function VehicleType({selectedType = [], onTypeChange}) {
+  const icons = [
+    {
+      name: "Van",
+      Icon: Van,
+    },
+    {
+      name: "Integrated",
+      Icon: Integrated,
+    },
+    {
+      name: "Alcove",
+      Icon: Alcove,
+    },
+  ];
+
+  const handleTypeChange = (type) => {
+    const selected = selectedType.includes(type)
+      ? selectedType.filter(type)
+      : [...selectedType, type];
+   
+    onTypeChange(selected);
   };
   return (
     <ul>
-      {Object.entries(icons).map(([icon, iconSrc]) => {
-        const iconName = icon;
+      {icons.map(({ name, Icon }) => {
         return (
-          <button key={iconName}>
-            <li >
+          <button key={name} onClick={() => handleTypeChange(name)}>
+            <li>
               <img
-                src={iconSrc}
-                alt={iconName}
+                src={Icon}
+                alt={name}
                 style={{ width: "32px", height: "32px" }}
               />
-              <span>{iconName}</span>
+              <span>{name}</span>
             </li>
           </button>
         );

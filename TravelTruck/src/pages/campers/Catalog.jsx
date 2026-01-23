@@ -18,29 +18,14 @@ export default function Catalog() {
   });
 
   const [displayedCampers, setDisplayedCampers] = useState([]);
-  useState(()=>{
-    console.log("filtered data:", filteredData)
-
-  },[filteredData])
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     try {
-  //       const res = await axios.get("/assets/data/campersList.json");
-
-  //       console.log("fetch Data:", res.data.items);
-  //       setData(res.data.items);
-  //       setFilteredData(res.data.items);
-  //     } catch (err) {
-  //       console.error("Error fetching data:", err);
-  //     }
-  //   };
-  //   if (query.length === 0 || query.length > 2) fetchData();
-  // }, []);
+  useEffect(() => {
+    console.log("Eqp güncellenmiş hali:", filteredData.equipment);
+    setFilteredData((prev) => ({ ...prev, equipment: filteredData.equipment }));
+  }, [filteredData.equipment]);
 
   const handleSelectedEqp = (selected) => {
     console.log("first selected:", selected);
     setFilteredData((prev) => ({ ...prev, equipment: selected }));
-    console.log("filteredData in Catalog:", filteredData.equipment);
   };
 
   const handleLocationChange = (location) => {
@@ -50,7 +35,7 @@ export default function Catalog() {
 
   const handleVehicleTypeChange = (type) => {
     console.log("recieve Type:", type);
-    console.log("current filtered data:",filteredData);
+    console.log("current filtered data:", filteredData);
     setFilteredData((prev) => ({ ...prev, vehicleType: type }));
     console.log("vehicleType", filteredData.vehicleType);
   };
@@ -76,10 +61,7 @@ export default function Catalog() {
             <h3>Vehicle equipments </h3>
           </div>
           <p className={css.devider}></p>
-          <VeicleEqp
-            selectedEqp={filteredData.equipment}
-            onEqpChange={handleSelectedEqp}
-          />
+          <VeicleEqp onEqpChange={handleSelectedEqp} />
           <h3>Vehicle type</h3>
           <p className={css.devider}></p>
           <VehicleType

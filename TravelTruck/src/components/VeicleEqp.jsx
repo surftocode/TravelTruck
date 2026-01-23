@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import AC from "../public/assets/icons/AC.svg?react";
 import Bathroom from "../public/assets/icons/Bathroom.svg?react";
 import Automatic from "../public/assets/icons/Automatic.svg?react";
@@ -6,7 +6,7 @@ import Kitchen from "../public/assets/icons/Kitchen.svg?react";
 import TV from "../public/assets/icons/TV.svg?react";
 import css from "../styles/equipments.module.css";
 
-export default function VeicleEqp({ selectedEqp = [], onEqpChange }) {
+export default function VeicleEqp({ onEqpChange }) {
   const equipments = [
     { name: "AC", Icon: AC },
     { name: "Automatic", Icon: Automatic },
@@ -15,11 +15,14 @@ export default function VeicleEqp({ selectedEqp = [], onEqpChange }) {
     { name: "Bathroom", Icon: Bathroom },
   ];
 
+  const [selectedEqp, setSelectedEqp] = useState([]);
+
   const handleClick = (equipmentName) => {
     const selected = selectedEqp.includes(equipmentName)
-      ? selectedEqp.filter(equipmentName)
+      ? selectedEqp.filter((item) => item !== equipmentName)
       : [...selectedEqp, equipmentName];
     console.log("selected:", selected);
+    setSelectedEqp(selected);
     console.log("equipmentName:", equipmentName);
     onEqpChange(selected);
   };

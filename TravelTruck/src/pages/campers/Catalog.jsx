@@ -18,13 +18,30 @@ export default function Catalog() {
   });
 
   const [displayedCampers, setDisplayedCampers] = useState([]);
-  useEffect(() => {
-    console.log("Eqp güncellenmiş hali:", filteredData.equipment);
-    setFilteredData((prev) => ({ ...prev, equipment: filteredData.equipment }));
-  }, [filteredData.equipment]);
+
+  const onSearch = (filteredData) => {
+    useEffect(() => {
+      console.log("Eqp güncellenmiş hali:", filteredData.equipment);
+      setFilteredData((prev) => ({
+        ...prev,
+        equipment: filteredData.equipment,
+      }));
+    }, [filteredData.equipment]);
+
+    useEffect(() => {
+      console.log("Type güncel hali:", filteredData.vehicleType);
+      setFilteredData((prev) => ({
+        ...prev,
+        vehicleType: filteredData.vehicleType,
+      }));
+    }, [filteredData.vehicleType]);
+    useEffect(() => {
+      console.log("location güncel hali:", filteredData.location);
+      setFilteredData((prev) => ({ ...prev, location: filteredData.location }));
+    });
+  };
 
   const handleSelectedEqp = (selected) => {
-    console.log("first selected:", selected);
     setFilteredData((prev) => ({ ...prev, equipment: selected }));
   };
 
@@ -35,12 +52,12 @@ export default function Catalog() {
 
   const handleVehicleTypeChange = (type) => {
     console.log("recieve Type:", type);
-    console.log("current filtered data:", filteredData);
-    setFilteredData((prev) => ({ ...prev, vehicleType: type }));
     console.log("vehicleType", filteredData.vehicleType);
+    setFilteredData((prev) => ({ ...prev, vehicleType: type }));
   };
   const handleToogle = () => {
     setDisplayedCampers(filteredData);
+    console.log("filtered data:",filteredData)
   };
 
   return (
@@ -68,7 +85,7 @@ export default function Catalog() {
             selectedType={filteredData.vehicleType}
             onTypeChange={handleVehicleTypeChange}
           />
-          <SearchButton onClick={() => onSearch()} />
+          <SearchButton onClick={()=>onSearch()} />
         </div>
         <div className={css.camperList}>
           <CamperList onClick={() => handleToogle()} />

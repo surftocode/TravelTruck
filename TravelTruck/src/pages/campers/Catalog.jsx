@@ -4,7 +4,7 @@ import VeicleEqp from "../../components/VeicleEqp";
 import css from "../../styles/catalogPage.module.css";
 import { useState, useEffect } from "react";
 import React from "react";
-import CamperList from "../../components/CamperList";
+import CamperList from "../../../public/assets/data/campersList.json";
 import { SearchLocation } from "../../components/SearchLocation";
 import axios from "axios";
 
@@ -18,6 +18,12 @@ export default function Catalog() {
   });
 
   const [displayedCampers, setDisplayedCampers] = useState([]);
+  const allCampers = async () => {
+    const campers = await axios.get(
+      "../../../public/assets/data/campersList.json"
+    );
+    setDisplayedCampers(campers);
+  };
 
   const onSearch = (filteredData) => {
     useEffect(() => {
@@ -27,18 +33,28 @@ export default function Catalog() {
         equipment: filteredData.equipment,
       }));
     }, [filteredData.equipment]);
+  };
 
-    useEffect(() => {
-      console.log("Type güncel hali:", filteredData.vehicleType);
-      setFilteredData((prev) => ({
-        ...prev,
-        vehicleType: filteredData.vehicleType,
-      }));
-    }, [filteredData.vehicleType]);
-    useEffect(() => {
-      console.log("location güncel hali:", filteredData.location);
-      setFilteredData((prev) => ({ ...prev, location: filteredData.location }));
+  useEffect(() => {
+    console.log("Type güncel hali:", filteredData.vehicleType);
+    setFilteredData((prev) => ({
+      ...prev,
+      vehicleType: filteredData.vehicleType,
+    }));
+  }, [filteredData.vehicleType]);
+  useEffect(() => {
+    console.log("location güncel hali:", filteredData.location);
+    setFilteredData((prev) => ({ ...prev, location: filteredData.location }));
+  });
+
+  if (!filteredData) {
+    return allCampers;
+  }
+  const filteredBySearch = () => {
+    allCampers.filter((item) => {
+      return item.toLowerCase().includes(item.toLowerCase());
     });
+    return filteredBySearch;
   };
 
   const handleSelectedEqp = (selected) => {
@@ -57,8 +73,19 @@ export default function Catalog() {
   };
   const handleToogle = () => {
     setDisplayedCampers(filteredData);
-    console.log("filtered data:",filteredData)
+    console.log("filtered data:", filteredData);
   };
+
+  // const handleSearch = () => {
+  //   if (!filteredData || filteredData.trim() === "") {
+  //     return allCampers;
+  //   }
+  //   const filteredBySearch = () => {
+  //     allCampers.filter((item) => {
+  //       return item.toLowerCase().includes(item.toLowerCase());
+  //     });
+  //     return filteredBySearch;
+  //   };
 
   return (
     <>
@@ -85,7 +112,7 @@ export default function Catalog() {
             selectedType={filteredData.vehicleType}
             onTypeChange={handleVehicleTypeChange}
           />
-          <SearchButton onClick={()=>onSearch()} />
+          <SearchButton onClick={() => onSearch()} />
         </div>
         <div className={css.camperList}>
           <CamperList onClick={() => handleToogle()} />
